@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Aerial Edge Media</title>
+<title>Edge Aerial Media</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--<link rel="stylesheet" href="w3.css">-->
 <link rel="stylesheet" href="w3.css">
@@ -76,6 +76,48 @@
             background-attachment: scroll;
         }
     }
+   button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+button.accordion:after {
+    content: '\02795';
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2796";
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+}
+
+div.panel.show {
+    opacity: 1;
+    max-height: 500px;
+}
 </style>
 
 <body>
@@ -90,9 +132,6 @@
             </li>
             <li ><a href="#contact">CONTACT</a>
             </li>
-            <li class="w3-hide-small w3-right">
-                <a href="#" class="w3-hover-red"><i class="fa fa-search"></i></a>
-            </li>
         </ul>
     </div>
     <!-- First Parallax Image with Logo Text -->
@@ -101,7 +140,7 @@
             <source src="SampleVideo.mp4" type="video/mp4">
         </video>
         <div class="w3-display-middle" style="white-space:nowrap;">
-            <span class="w3-center w3-padding-xlarge w3-black w3-xlarge w3-wide w3-animate-opacity">AERIAL <span class="w3-hide-small">EDGE</span> MEDIA</span>
+            <span class="w3-center w3-padding-xlarge w3-black w3-xlarge w3-wide w3-animate-opacity">EDGE <span class="w3-hide-small">AERIAL</span> MEDIA</span>
         </div>
     </div>
     <!-- Container (About Section) -->
@@ -133,13 +172,10 @@
     </div>
     <!-- Container (Portfolio Section) -->
     <div class="w3-content w3-container w3-padding-64">
-        <h3 class="w3-center">Portfolio</h3>
-        <p class="w3-center"><em>Here are some of my latest lorem work ipsum tipsum.<br> Click on the images to make them bigger</em>
-        </p>
-        <br>
-        <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-        <div class="w3-row-padding w3-center">
-            <div class="w3-col m3">
+        <h3 class="w3-center">Portfolios</h3>
+        <button class="accordion">Steven</button>
+        <div class="panel w3-row-padding w3-center">
+            <div class=" w3-col m3">
                 <img src="duck.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
             </div>
             <div class="w3-col m3">
@@ -153,12 +189,46 @@
             </div>
         </div>
         <!-- Modal for full size images on click-->
-        <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-            <span class="w3-closebtn w3-hover-red w3-text-white w3-xxxlarge w3-container w3-display-topright">?</span>
+        <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+            <span class="w3-closebtn w3-hover-red w3-text-white w3-xxxlarge w3-container w3-display-topright">&times;</span>
             <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
                 <img id="img01" style="max-width:100%">
             </div>
         </div>
+
+            
+        <button class="accordion">Hannah</button>
+        <div class="panel w3-row-padding w3-center">
+            <div class=" w3-col m3">
+                <img src="goat.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+            </div>
+            <div class="w3-col m3">
+                <img src="goat.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+            </div>
+            <div class="w3-col m3">
+                <img src="goat.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+            </div>
+            <div class="w3-col m3">
+                <img src="goat.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+            </div>
+        </div>
+
+        <button class="accordion">Chris</button>
+        <div class="panel w3-row-padding w3-center">
+            <div class="w3-col m3">
+                <img src="duck.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+            </div>
+            <div class="w3-col m3">
+                <img src="duck.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+            </div>
+            <div class="w3-col m3">
+                <img src="duck.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+            </div>
+            <div class="w3-col m3">
+                <img src="duck.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+            </div>
+        </div>
+        <br>
         <!-- Third Parallax Image with Portfolio Text -->
         <div id ="contact" class="bgimg-3 w3-display-container">
             <div class="w3-display-middle">
@@ -166,7 +236,7 @@
             </div>
         </div>
         <div class="w3-content w3-container w3-padding-64">
-            <h3 class="w3-center">LOCATION</h3>
+            <h3 class="w3-center">INFORMATION</h3>
             <div class="w3-row w3-padding-32 w3-section">
                 <div class="w3-col m4 w3-container">
                     <!-- Add Google Maps -->
@@ -178,18 +248,22 @@
                         <br>
                         <i class="fa fa-phone w3-hover-text-black" style="width:30px"></i> Phone: +00 151515
                         <br>
-                        <i class="fa fa-envelope w3-hover-text-black" style="width:30px"> </i> Email: mail@mail.com
+                        <i class="fa fa-envelope w3-hover-text-black" style="width:30px"> </i> Email: contact@edgeaerialmedia.com
                         <br>
                     </div>
                     <p>Contact us here:</p>
                     <form id="input" name="input" method="post" autocomplete="off">
-                        <input type="text" id="name" name="name" placeholder="Name" onClick="this.select();">
-                        <br>
-                        <input type="text" id="email" name="email" placeholder="Email" onClick="this.select();">
-                        <br>
-                        <input type="text" id="comment" name="comment" placeholder="Comment" onClick="this.select();">
-                        <br>
-                        <input style="cursor:pointer" id="button" type="button" value="Submit">
+                        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                            <div class="w3-half">
+                              <input class="w3-input w3-border w3-hover-light-grey"type="text" id="name" name="name" placeholder="Name" onClick="this.select();">
+                            </div>
+                            <div class="w3-half">
+                              <input class="w3-input w3-border w3-hover-light-grey"type="text" id="email" name="email" placeholder="Email" onClick="this.select();">
+                            </div>
+                          </div>
+                          <input class="w3-input w3-border w3-hover-light-grey" type="text" id="comment" name="comment" placeholder="Comment" onClick="this.select();">
+                          <input class="w3-btn w3-section w3-right" style="cursor:pointer" id="button" type="button" value="Submit">
+                       
                     </form>
                 </div>
             </div>
@@ -201,7 +275,7 @@
             </p>
         </footer>
         <!-- Add Google Maps -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKOxRZK2S40gLo7ynJS3EUch_XlXNWvs4"></script> 
+        <script src="https://maps.googleapis.com/maps/api/js?key=APIKEY "></script> 
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>		
         <script type="text/javascript" src="jquery.easing.1.3.js"></script>
         <script type="text/javascript">
@@ -257,6 +331,17 @@
                 } else {
                     navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-white", "");
                 }
+            }
+        </script>
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].onclick = function(){
+                    this.classList.toggle("active");
+                    this.nextElementSibling.classList.toggle("show");
+              }
             }
         </script>
 </body>
